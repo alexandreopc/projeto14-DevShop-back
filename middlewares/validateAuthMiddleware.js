@@ -3,6 +3,7 @@ import { authSignInSchema, authSignUpSchema } from "../schemas/authSchema.js";
 export function validateSignIn(req, res, next) {
     const { error } = authSignUpSchema.validate(req.body);
     if (error) {
+        console.log(error.details)
         return res.sendStatus(422);
     }
 
@@ -10,8 +11,9 @@ export function validateSignIn(req, res, next) {
 }
 
 export function validateSignUp(req, res, next) {
-    const { error } = authSignInSchema.validate(req.body);
+    const { error } = authSignUpSchema.validate(req.body);
     if (error) {
+        console.log(error.details)
         return res.sendStatus(422);
     }
     next();
