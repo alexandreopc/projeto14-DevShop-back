@@ -35,3 +35,29 @@ export async function getAudio(req, res) {
     console.log("erro ao pegar os itens de audio", e);
   }
 }
+
+export async function getSmarthome(req, res) {
+  try {
+    const smarthome = await db
+      .collection("products")
+      .find({ category: "smarthome" })
+      .toArray();
+    res.send(smarthome);
+  } catch (e) {
+    res.sendStatus(500);
+    console.log("erro ao pegar os itens de smarthome", e);
+  }
+}
+
+export async function getBooks(req, res) {
+  try {
+    const books = await db
+      .collection("products")
+      .find({ category: "books" })
+      .toArray();
+    res.send(books);
+  } catch (e) {
+    res.sendStatus(500);
+    console.log("erro ao pegar os itens de smarthome", e);
+  }
+}
