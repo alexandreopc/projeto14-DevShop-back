@@ -75,3 +75,15 @@ export async function getChair(req, res) {
   }
 }
 
+export async function getGames(req, res) {
+  try {
+    const games = await db
+      .collection("products")
+      .find({ category: "games" })
+      .toArray();
+    res.send(games);
+  } catch (e) {
+    res.sendStatus(500);
+    console.log("erro ao pegar os itens de games", e);
+  }
+}
