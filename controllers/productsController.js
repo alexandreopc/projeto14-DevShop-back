@@ -87,3 +87,16 @@ export async function getGames(req, res) {
     console.log("erro ao pegar os itens de games", e);
   }
 }
+
+export async function getPeripherals(req, res) {
+  try {
+    const peripherals = await db
+      .collection("products")
+      .find({ category: "peripherals" })
+      .toArray();
+    res.send(peripherals);
+  } catch (e) {
+    res.sendStatus(500);
+    console.log("erro ao pegar os itens de peripherals", e);
+  }
+}

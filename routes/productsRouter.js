@@ -6,7 +6,8 @@ import {
   getSmarthome,
   getBooks,
   getChair,
-  getGames
+  getGames,
+  getPeripherals
 } from "./../controllers/productsController.js";
 
 const productsRouter = Router();
@@ -18,5 +19,6 @@ productsRouter.get("/smarthome", getSmarthome);
 productsRouter.get("/books", getBooks);
 productsRouter.get("/chair", getChair);
 productsRouter.get("/games", getGames);
+productsRouter.get("/accessory", getPeripherals);
 
 export default productsRouter;
