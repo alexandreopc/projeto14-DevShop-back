@@ -58,6 +58,20 @@ export async function getBooks(req, res) {
     res.send(books);
   } catch (e) {
     res.sendStatus(500);
-    console.log("erro ao pegar os itens de smarthome", e);
+    console.log("erro ao pegar os itens de livros", e);
   }
 }
+
+export async function getChair(req, res) {
+  try {
+    const chair = await db
+      .collection("products")
+      .find({ category: "chair" })
+      .toArray();
+    res.send(chair);
+  } catch (e) {
+    res.sendStatus(500);
+    console.log("erro ao pegar os itens de chair", e);
+  }
+}
+
