@@ -1,7 +1,7 @@
 import { authSignInSchema, authSignUpSchema } from "../schemas/authSchema.js";
 
 export function validateSignIn(req, res, next) {
-    const { error } = authSignUpSchema.validate(req.body);
+    const { error } = authSignInSchema.validate(req.body);
     if (error) {
         console.log(error.details)
         return res.sendStatus(422);
